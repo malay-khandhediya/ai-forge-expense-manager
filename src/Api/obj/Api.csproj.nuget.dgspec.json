@@ -76,29 +76,13 @@
               "target": "Package",
               "version": "[8.0.1, )"
             },
-            "Microsoft.Extensions.Caching.StackExchangeRedis": {
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.0, )"
             },
-            "Peddle.Foundation.Common": {
+            "Microsoft.Extensions.Caching.StackExchangeRedis": {
               "target": "Package",
-              "version": "[7.1.0, )"
-            },
-            "Peddle.Foundation.Common.Extensions.Configuration": {
-              "target": "Package",
-              "version": "[6.0.0, )"
-            },
-            "Peddle.Foundation.Common.Extensions.Configuration.ConfigurationManager": {
-              "target": "Package",
-              "version": "[6.0.0, )"
-            },
-            "Peddle.Foundation.Common.Extensions.Configuration.SystemsManager": {
-              "target": "Package",
-              "version": "[6.1.1, )"
-            },
-            "Peddle.Foundation.Common.Logging.Dependencies.Core": {
-              "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[9.0.0, )"
             },
             "Serilog.AspNetCore": {
               "target": "Package",

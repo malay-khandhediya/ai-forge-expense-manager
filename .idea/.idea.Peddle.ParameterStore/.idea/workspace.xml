@@ -10,7 +10,60 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4ac5fb8-c559-4400-b5fd-2bb16870c666" name="Changes" comment="" />
+    <list default="true" id="d4ac5fb8-c559-4400-b5fd-2bb16870c666" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Api/Domain/ExpenseTrackerDbContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Api/Domain/Model/Category.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Api/Domain/Model/Expense.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Peddle.ParameterStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Peddle.ParameterStore/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Peddle.AiForgeExpenseManager.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Peddle.AiForgeExpenseManager.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Api.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/Domain/ApiErrorMessages.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/Shared/DependencyInjectionExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Shared/DependencyInjectionExtension.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/Shared/ErrorMessageProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/Shared/SnakeCaseQueryBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/bin/Debug/net8.0/Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/bin/Debug/net8.0/Api.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/bin/Debug/net8.0/Api.exe" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/bin/Debug/net8.0/Api.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/bin/Debug/net8.0/Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/bin/Debug/net8.0/Api.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/obj/Api.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/obj/Api.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/obj/Api.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/obj/Api.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/obj/Api.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/obj/Api.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/obj/Debug/net8.0/Api.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/obj/Debug/net8.0/Api.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/obj/Debug/net8.0/Api.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/obj/Debug/net8.0/Api.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/obj/Debug/net8.0/Api.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/obj/Debug/net8.0/Api.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/obj/Debug/net8.0/Api.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/obj/Debug/net8.0/Api.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/obj/Debug/net8.0/Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/obj/Debug/net8.0/Api.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/obj/Debug/net8.0/Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/obj/Debug/net8.0/Api.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/obj/Debug/net8.0/Api.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/obj/Debug/net8.0/Api.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/obj/Debug/net8.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/obj/Debug/net8.0/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/obj/Debug/net8.0/ref/Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/obj/Debug/net8.0/ref/Api.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/obj/Debug/net8.0/refint/Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/obj/Debug/net8.0/refint/Api.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UnitTests/bin/Debug/net8.0/Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UnitTests/bin/Debug/net8.0/Api.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UnitTests/bin/Debug/net8.0/Api.exe" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UnitTests/bin/Debug/net8.0/Api.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UnitTests/bin/Debug/net8.0/Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UnitTests/bin/Debug/net8.0/Api.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UnitTests/bin/Debug/net8.0/UnitTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UnitTests/bin/Debug/net8.0/UnitTests.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UnitTests/bin/Debug/net8.0/UnitTests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UnitTests/bin/Debug/net8.0/UnitTests.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UnitTests/obj/Debug/net8.0/UnitTests.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UnitTests/obj/Debug/net8.0/UnitTests.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UnitTests/obj/Debug/net8.0/UnitTests.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UnitTests/obj/Debug/net8.0/UnitTests.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UnitTests/obj/Debug/net8.0/UnitTests.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UnitTests/obj/Debug/net8.0/UnitTests.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UnitTests/obj/Debug/net8.0/UnitTests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UnitTests/obj/Debug/net8.0/UnitTests.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UnitTests/obj/Debug/net8.0/UnitTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UnitTests/obj/Debug/net8.0/UnitTests.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UnitTests/obj/Debug/net8.0/UnitTests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UnitTests/obj/Debug/net8.0/UnitTests.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UnitTests/obj/Debug/net8.0/UnitTests.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UnitTests/obj/Debug/net8.0/UnitTests.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UnitTests/obj/Debug/net8.0/ref/UnitTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UnitTests/obj/Debug/net8.0/ref/UnitTests.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UnitTests/obj/Debug/net8.0/refint/UnitTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UnitTests/obj/Debug/net8.0/refint/UnitTests.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UnitTests/obj/UnitTests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UnitTests/obj/UnitTests.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UnitTests/obj/UnitTests.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UnitTests/obj/UnitTests.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UnitTests/obj/UnitTests.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UnitTests/obj/UnitTests.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UnitTests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UnitTests/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UnitTests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UnitTests/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UnitTests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UnitTests/obj/rider.project.restore.info" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,8 +88,13 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/243a037ca7a04510a506adfdd94befbac90930/be/9fa60395/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/01832221eb823b1e286e7a6cf1b237d5773eb9652e2afef453aeab3e6edb5/EndpointData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -142,7 +200,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1735894807812</updated>
-      <workItem from="1735894809033" duration="324000" />
+      <workItem from="1735894809033" duration="1023000" />
     </task>
     <servers />
   </component>

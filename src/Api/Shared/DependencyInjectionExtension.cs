@@ -2,17 +2,8 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using AutoMapper;
-using CorrelationId.DependencyInjection;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using Peddle.Foundation.Common.Constants;
-using Peddle.Foundation.Common.Filters;
-using Peddle.Foundation.Common.JsonCasing;
 using StackExchange.Redis;
-using Microsoft.Extensions.DependencyInjection;
-using Peddle.ParameterStore.Domain;
 using Peddle.ParameterStore.Shared.CacheIntegration;
 
 namespace Peddle.ParameterStore.Shared
@@ -25,12 +16,8 @@ namespace Peddle.ParameterStore.Shared
             var mapperConfig = new MapperConfiguration(mc => { mc.AddMaps(Assembly.GetExecutingAssembly()); });
             var mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
-
-            services.RegisterCorrelationIdServices();
             services.RegisterCaching(configuration);
             services.RegisterInternalServices();
-            services.AddSingleton<Peddle.Foundation.Common.Middleware.Errors.IErrorResponsesProvider,
-                Peddle.Foundation.Common.Middleware.Errors.ErrorResponsesProvider>();
             services.RegisterHealthCheck();
             return services;
         }
@@ -46,14 +33,6 @@ namespace Peddle.ParameterStore.Shared
                 options.SerializerOptions.DictionaryKeyPolicy = JsonNamingPolicy.SnakeCaseLower;
             });
 
-            // Set the API Behavior options
-            services.Configure<MvcOptions>(options =>
-            {
-                options.Filters.Add(typeof(ValidateModelFilterAttribute));
-                options.Filters.Add(new JsonPatchDocumentSnakeCaseFilter());
-                options.ValueProviderFactories.Add(
-                    new SnakeCaseQueryValueProvider.SnakeCaseQueryValueProviderFactory());
-            });
 
             // Set the API Behavior options
             services.Configure<ApiBehaviorOptions>(options =>
@@ -69,22 +48,7 @@ namespace Peddle.ParameterStore.Shared
             return services;
         }
 
-        public static IServiceCollection AddAuthentication(this IServiceCollection services,
-            IConfiguration configuration)
-        {
-            services.AddAuthentication()
-                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
-                {
-                    options.Authority = configuration.GetValue<string>("IDENTITY_PROVIDER_SERVICE_HOST");
-                    options.RequireHttpsMetadata = false;
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateAudience = true,
-                        ValidAudience = Audience.Universal
-                    };
-                });
-            return services;
-        }
+
         
         
         private static void RegisterInternalServices(this IServiceCollection services)
@@ -92,15 +56,7 @@ namespace Peddle.ParameterStore.Shared
 
         }
 
-        private static void RegisterCorrelationIdServices(this IServiceCollection services)
-        {
-            services.AddCorrelationId(options =>
-            {
-                options.AddToLoggingScope = true;
-                options.RequestHeader = CorrelationIdConfig.HeaderName;
-                options.UpdateTraceIdentifier = true;
-            }).WithGuidProvider();
-        }
+        
         private static void RegisterCaching(this IServiceCollection services, IConfiguration configuration)
         {
             var redisConnectionString = configuration.GetValue<string>("Secrets:Redis:ConnectionString");
