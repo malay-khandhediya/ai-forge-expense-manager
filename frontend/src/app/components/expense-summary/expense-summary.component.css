@@ -1,0 +1,28 @@
+/* Styles for the Expense Summary component */
+.expense-summary {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.summary-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.category-summary {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.category-name {
+    font-weight: bold;
+}
+
+.total-amount {
+    color: #2c3e50;
+    font-size: 18px;
+}

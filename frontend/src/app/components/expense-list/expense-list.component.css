@@ -1,0 +1,32 @@
+/* Styles for the Expense List component */
+.expense-list {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.expense-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.expense-list th, .expense-list td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.expense-list th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+.expense-list .category {
+    font-weight: bold;
+}
+
+.expense-list .amount {
+    color: green;
+}
+
+.expense-list .date {
+    color: gray;
+}

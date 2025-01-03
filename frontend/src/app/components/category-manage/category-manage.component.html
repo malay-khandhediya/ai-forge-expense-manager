@@ -1,0 +1,15 @@
+<div>
+  <h2>Manage Category</h2>
+  <form (ngSubmit)="addCategory()">
+    <label for="name">Category Name:</label>
+    <input type="text" id="name" [(ngModel)]="category.name" name="name" required>
+    <button type="submit">Add Category</button>
+  </form>
+  <form (ngSubmit)="editCategory()">
+    <label for="id">Category ID:</label>
+    <input type="number" id="id" [(ngModel)]="category.categoryId" name="id" required>
+    <label for="name">Category Name:</label>
+    <input type="text" id="name" [(ngModel)]="category.name" name="name" required>
+    <button type="submit">Edit Category</button>
+  </form>
+</div>

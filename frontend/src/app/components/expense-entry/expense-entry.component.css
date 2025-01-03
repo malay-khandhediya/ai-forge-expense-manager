@@ -1,0 +1,32 @@
+/* Styles for the Expense Entry component */
+.expense-entry {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.expense-entry label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.expense-entry input,
+.expense-entry select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.expense-entry button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.expense-entry button:hover {
+    background-color: #218838;
+}
