@@ -12,7 +12,7 @@ export const routes: Routes = [
   { path: 'expense-entry', component: ExpenseEntryComponent },
   { path: 'expense-list', component: ExpenseListComponent },
   { path: 'category-list', component: CategoryListComponent },
-  { path: 'category-entry', component: CategoryManageComponent },
+  { path: 'category-manage', component: CategoryManageComponent },
   { path: 'expense-summary', component: ExpenseSummaryComponent },
   { path: 'search', component: SearchComponent }
 ];

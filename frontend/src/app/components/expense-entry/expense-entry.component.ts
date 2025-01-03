@@ -1,10 +1,12 @@
-import { Component } from "@angular/core";
-import { Expense } from "../../models/expense.model";
-import { ExpenseService } from "../../services/expense.service";
-import { ActivatedRoute } from '@angular/router';
-import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
-import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ExpenseService } from '../../services/expense.service';
+import { CategoryService } from '../../services/category.service';
+import { Expense } from '../../models/expense.model';
+import { Category } from '../../models/category.model';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-expense-entry',
@@ -12,123 +14,62 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
   styleUrls: ['./expense-entry.component.css'],
   standalone: true,
       imports: [CommonModule,FormsModule,HttpClientModule],
-      providers: [ExpenseService, HttpClient],
-  })
-export class ExpenseEntryComponent {
-  expense: Expense = new Expense(); // Initialize with a new instance of Expense
-  isLoading: boolean = false; // To manage loading state
-  errorMessage: string | null = null; // To handle errors
+      providers: [ExpenseService,CategoryService, HttpClient],
+  
+})
+export class ExpenseEntryComponent implements OnInit {
+  expense: Expense = new Expense();
+  categories: Category[] = [];
+  isEditMode: boolean = false;
 
-  constructor(private expenseService: ExpenseService, private route: ActivatedRoute) {
+  constructor(
+    private expenseService: ExpenseService,
+    private categoryService: CategoryService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
+
+  ngOnInit() {
     this.route.queryParams.subscribe(params => {
       if (params['id']) {
+        this.isEditMode = true;
         this.loadExpense(params['id']);
+      } else {
+        this.isEditMode = false;
       }
     });
+    this.loadCategories();
   }
 
-  /**
-   * Load an expense entry by ID.
-   * @param expenseId - The ID of the expense to load.
-   */
-  loadExpense(expenseId: number): void {
-    this.expenseService.getExpenseById(expenseId).subscribe({
-      next: (response) => {
-        this.expense = response;
-      },
-      error: (error) => {
-        this.handleError('Failed to load expense. Please try again.');
-      }
+  loadExpense(id: number) {
+    this.expenseService.getExpenseById(id).subscribe((data: Expense) => {
+      this.expense = data;
     });
   }
 
-  /**
-   * Add a new expense entry.
-   */
-  addExpense(): void {
-    this.resetError(); // Clear any previous error messages
-    this.isLoading = true;
-
-    this.expenseService.addExpense(this.expense).subscribe({
-      next: (response) => {
-        console.log('Expense added successfully:', response);
-        this.resetForm();
-      },
-      error: (error) => {
-        this.handleError('Failed to add expense. Please try again.');
-      },
-      complete: () => (this.isLoading = false),
+  loadCategories() {
+    this.categoryService.getCategories().subscribe((data: Category[]) => {
+      this.categories = data;
     });
   }
 
-  /**
-   * Edit an existing expense entry.
-   */
-  editExpense(): void {
-    this.resetError();
-    this.isLoading = true;
-
-    this.expenseService.updateExpense(this.expense).subscribe({
-      next: (response) => {
-        console.log('Expense updated successfully:', response);
-      },
-      error: (error) => {
-        this.handleError('Failed to update expense. Please try again.');
-      },
-      complete: () => (this.isLoading = false),
-    });
-  }
-
-  /**
-   * Delete an expense entry by ID.
-   * @param expenseId - The ID of the expense to delete.
-   */
-  deleteExpense(expenseId: number): void {
-    this.resetError();
-    this.isLoading = true;
-
-    this.expenseService.deleteExpense(expenseId).subscribe({
-      next: (response) => {
-        console.log('Expense deleted successfully:', response);
-        this.resetForm();
-      },
-      error: (error) => {
-        this.handleError('Failed to delete expense. Please try again.');
-      },
-      complete: () => (this.isLoading = false),
-    });
-  }
-
-  /**
-   * Handle form submission.
-   */
-  onSubmit(): void {
-    if (this.expense.id) {
+  onSubmit() {
+    if (this.isEditMode) {
       this.editExpense();
     } else {
       this.addExpense();
     }
   }
 
-  /**
-   * Reset the form to its initial state.
-   */
-  resetForm(): void {
-    this.expense = new Expense();
+  addExpense() {
+    this.expenseService.addExpense(this.expense).subscribe(() => {
+      this.router.navigate(['/expense-list']);
+    });
   }
 
-  /**
-   * Reset the error message.
-   */
-  resetError(): void {
-    this.errorMessage = null;
-  }
-
-  /**
-   * Handle errors by setting the error message.
-   * @param message - The error message to set.
-   */
-  handleError(message: string): void {
-    this.errorMessage = message;
+  editExpense() {
+    this.expenseService.updateExpense(this.expense).subscribe(() => {
+      this.router.navigate(['/expense-list']);
+    });
   }
 }

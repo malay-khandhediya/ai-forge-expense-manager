@@ -1,8 +1,11 @@
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { Expense } from "../models/expense.model";
-import { Injectable } from "@angular/core";
-@Injectable()
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Expense } from '../models/expense.model';
+
+@Injectable({
+  providedIn: 'root'
+})
 export class ExpenseService {
   private apiUrl = 'https://api.example.com/expenses'; // Replace with your API URL
 
@@ -10,6 +13,10 @@ export class ExpenseService {
 
   getExpenses(): Observable<Expense[]> {
     return this.http.get<Expense[]>(this.apiUrl);
+  }
+
+  getExpenseById(id: number): Observable<Expense> {
+    return this.http.get<Expense>(`${this.apiUrl}/${id}`);
   }
 
   addExpense(expense: Expense): Observable<Expense> {
@@ -27,8 +34,4 @@ export class ExpenseService {
   searchExpenses(query: string): Observable<Expense[]> {
     return this.http.get<Expense[]>(`${this.apiUrl}?search=${query}`);
   }
-  getExpenseById(id: number): Observable<Expense> {
-    return this.http.get<Expense>(`${this.apiUrl}/${id}`);
-  }
-
 }

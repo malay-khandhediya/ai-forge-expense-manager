@@ -7,12 +7,16 @@ import { Category } from '../models/category.model';
   providedIn: 'root'
 })
 export class CategoryService {
-  private apiUrl = 'http://localhost:3000/categories';
+  private apiUrl = 'https://api.example.com/categories'; // Replace with your API URL
 
   constructor(private http: HttpClient) {}
 
   getCategories(): Observable<Category[]> {
     return this.http.get<Category[]>(this.apiUrl);
+  }
+
+  getCategoryById(id: number): Observable<Category> {
+    return this.http.get<Category>(`${this.apiUrl}/${id}`);
   }
 
   addCategory(category: Category): Observable<Category> {

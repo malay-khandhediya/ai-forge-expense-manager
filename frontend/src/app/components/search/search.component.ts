@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ExpenseService } from '../../services/expense.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Expense } from '../../models/expense.model';
 
 @Component({
   selector: 'app-search',
@@ -12,13 +13,13 @@ import { FormsModule } from '@angular/forms';
 })
 export class SearchComponent {
   searchQuery: string = '';
-  results: any[] = [];
+  results: Expense[] = [];
 
   constructor(private expenseService: ExpenseService) {}
 
-  onSearch() {
+  searchExpenses() {
     if (this.searchQuery) {
-      this.expenseService.searchExpenses(this.searchQuery).subscribe((data: any[]) => {
+      this.expenseService.searchExpenses(this.searchQuery).subscribe((data: Expense[]) => {
         this.results = data;
       });
     } else {

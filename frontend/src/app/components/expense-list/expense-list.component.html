@@ -1,5 +1,8 @@
 <div class="container mt-4">
   <h2 class="mb-4">Expense List</h2>
+  <div class="d-flex justify-content-end mb-3">
+    <button class="btn btn-primary" (click)="navigateToAddExpense()">Add Expense</button>
+  </div>
   <ul class="list-group">
     <li *ngFor="let expense of expenses" class="list-group-item">
       <div class="d-flex justify-content-between align-items-center">
@@ -10,7 +13,7 @@
           <p class="mb-1">Category: {{ expense.category }}</p>
         </div>
         <div>
-          <button class="btn btn-primary btn-sm me-2" (click)="editExpense(expense)">Edit</button>
+          <button class="btn btn-primary btn-sm me-2" (click)="navigateToEditExpense(expense.id)">Edit</button>
           <button class="btn btn-danger btn-sm" (click)="deleteExpense(expense.id)">Delete</button>
         </div>
       </div>

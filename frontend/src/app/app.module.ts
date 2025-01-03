@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
@@ -8,11 +7,10 @@ import { ExpenseEntryComponent } from './components/expense-entry/expense-entry.
 import { ExpenseListComponent } from './components/expense-list/expense-list.component';
 import { ExpenseSummaryComponent } from './components/expense-summary/expense-summary.component';
 import { SearchComponent } from './components/search/search.component';
+import { HomeComponent } from './components/home/home.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { CategoryManageComponent } from './components/category-manage/category-manage.component';
-import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ExpenseService } from './services/expense.service';
 
 @NgModule({
   declarations: [
@@ -21,18 +19,17 @@ import { ExpenseService } from './services/expense.service';
     ExpenseListComponent,
     ExpenseSummaryComponent,
     SearchComponent,
+    HomeComponent,
     CategoryListComponent,
-    CategoryManageComponent,
-    HomeComponent
+    CategoryManageComponent
   ],
   imports: [
-    AppRoutingModule,
     BrowserModule,
     FormsModule,
     CommonModule,
-    
+    AppRoutingModule
   ],
-  providers: [ExpenseService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

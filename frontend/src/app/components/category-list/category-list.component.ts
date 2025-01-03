@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Category } from '../../models/category.model';
 import { CategoryService } from '../../services/category.service';
 import { CommonModule } from '@angular/common';
@@ -8,13 +9,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-category-list',
   templateUrl: './category-list.component.html',
-    imports: [CommonModule,FormsModule,HttpClientModule],
-       providers: [CategoryService, HttpClient],
+  imports: [CommonModule, FormsModule, HttpClientModule],
+  providers: [CategoryService, HttpClient],
 })
 export class CategoryListComponent implements OnInit {
   categories: Category[] = [];
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(private categoryService: CategoryService, private router: Router) {}
 
   ngOnInit() {
     this.loadCategories();
@@ -30,5 +31,13 @@ export class CategoryListComponent implements OnInit {
     this.categoryService.deleteCategory(id).subscribe(() => {
       this.loadCategories();
     });
+  }
+
+  navigateToAddCategory() {
+    this.router.navigate(['/category-manage']);
+  }
+
+  navigateToEditCategory(id: number) {
+    this.router.navigate(['/category-manage'], { queryParams: { id: id } });
   }
 }
