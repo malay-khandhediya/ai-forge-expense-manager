@@ -23,6 +23,7 @@ export class CategoryManageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    debugger
     this.route.queryParams.subscribe(params => {
       if (params['id']) {
         this.isEditMode = true;
@@ -35,6 +36,7 @@ export class CategoryManageComponent implements OnInit {
 
   loadCategory(id: number) {
     this.categoryService.getCategoryById(id).subscribe((data: Category) => {
+      debugger
       this.category = data;
     });
   }

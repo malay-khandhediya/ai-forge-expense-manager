@@ -9,12 +9,12 @@
         <div>
           <h5 class="mb-1">{{ expense.description }}</h5>
           <p class="mb-1">Amount: {{ expense.amount | currency }}</p>
-          <p class="mb-1">Date: {{ expense.date | date }}</p>
-          <p class="mb-1">Category: {{ expense.category }}</p>
+          <p class="mb-1">Date: {{ expense.expenseDate | date }}</p>
+          <p class="mb-1">Category: {{ getcategoryname(expense.categoryId) }}</p>
         </div>
         <div>
-          <button class="btn btn-primary btn-sm me-2" (click)="navigateToEditExpense(expense.id)">Edit</button>
-          <button class="btn btn-danger btn-sm" (click)="deleteExpense(expense.id)">Delete</button>
+          <button class="btn btn-primary btn-sm me-2" (click)="navigateToEditExpense(expense.expenseId)">Edit</button> &nbsp;&nbsp;
+          <button class="btn btn-danger btn-sm" (click)="deleteExpense(expense.expenseId)">Delete</button>
         </div>
       </div>
     </li>

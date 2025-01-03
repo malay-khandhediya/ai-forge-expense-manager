@@ -41,6 +41,19 @@ public class CategoryController : ControllerBase
         return NoContent();
     }
 
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Category>> GetCategoryById(int id)
+    {
+        var category = await _context.Categories.FirstOrDefaultAsync(c => c.CategoryId == id);
+
+        if (category == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(category);
+    }
+    
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteCategory(int id)
     {

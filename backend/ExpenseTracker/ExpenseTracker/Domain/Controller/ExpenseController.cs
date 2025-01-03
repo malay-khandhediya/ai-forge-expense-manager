@@ -16,7 +16,19 @@ public class ExpenseController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Expense>>> GetExpenses()
     {
-        return await _context.Expenses.Include(e => e.Category).ToListAsync();
+        return await _context.Expenses.ToListAsync();
+    }
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Expense>> GetExpenseById(int id)
+    {
+        var expense = await _context.Expenses.FirstOrDefaultAsync(e => e.ExpenseId == id);
+
+        if (expense == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(expense);
     }
     [HttpPost]
     public async Task<ActionResult<Expense>> CreateExpense(Expense expense)
@@ -49,5 +61,31 @@ public class ExpenseController : ControllerBase
         _context.Expenses.Remove(expense);
         await _context.SaveChangesAsync();
         return NoContent();
+    }
+    
+    [HttpGet("summary")]
+    public async Task<ActionResult<IEnumerable<CategorySummary>>> GetExpenseSummaryByCategory()
+    {
+        var summary = await _context.Expenses
+            .GroupBy(e => e.Category.Name)
+            .Select(g => new CategorySummary
+            {
+                Category = g.Key,
+                TotalAmount = g.Sum(e => e.Amount)
+            })
+            .ToListAsync();
+
+        return Ok(summary);
+    }
+    
+    [HttpGet("search")]
+    public async Task<ActionResult<IEnumerable<Expense>>> SearchExpenses(string query)
+    {
+        var expenses = await _context.Expenses
+            .Where(e => EF.Functions.Like(e.Description, $"%{query}%") ||
+                        EF.Functions.Like(e.Category!.Name, $"%{query}%"))
+            .ToListAsync();
+
+        return Ok(expenses);
     }
 }

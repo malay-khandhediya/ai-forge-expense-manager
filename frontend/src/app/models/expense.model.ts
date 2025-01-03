@@ -1,8 +1,8 @@
 export class Expense {
-    id: number = 0;
+    expenseId: number = 0;
     amount: number=0;
     description: string= '';
-    date: Date = new Date();
-    category :string = '';
-    categoryId  = 0;
+    expenseDate: Date = new Date();
+    categoryName :string = '';
+    categoryId  = 0 ;
 }

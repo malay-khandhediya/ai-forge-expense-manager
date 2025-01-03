@@ -22,6 +22,7 @@ export class CategoryListComponent implements OnInit {
   }
 
   loadCategories() {
+    debugger
     this.categoryService.getCategories().subscribe((data: Category[]) => {
       this.categories = data;
     });

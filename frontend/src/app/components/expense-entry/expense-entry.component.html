@@ -11,12 +11,12 @@
     </div>
     <div class="form-group">
       <label for="date">Date:</label>
-      <input type="date" id="date" class="form-control" [(ngModel)]="expense.date" name="date" required>
+      <input type="date" id="date" class="form-control" [(ngModel)]="expense.expenseDate" name="date" required>
     </div>
     <div class="form-group">
       <label for="category">Category:</label>
-      <select id="category" class="form-control" [(ngModel)]="expense.category" name="category" required>
-        <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+      <select id="category" class="form-control" [(ngModel)]="expense.categoryId" name="category" required>
+        <option *ngFor="let category of categories" [value]="category.categoryId">{{ category.name }}</option>
       </select>
     </div>
     <button type="submit" class="btn btn-primary mt-2">{{ isEditMode ? 'Update Expense' : 'Add Expense' }}</button>
