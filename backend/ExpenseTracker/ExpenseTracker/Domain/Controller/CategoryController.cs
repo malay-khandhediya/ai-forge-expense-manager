@@ -1,4 +1,4 @@
-﻿using ExpenseTracker.Model;
+﻿using ExpenseTracker.Domain.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

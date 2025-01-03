@@ -1,23 +1,25 @@
 ﻿using ExpenseTracker.Domain.Model;
-using ExpenseTracker.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExpenseTracker.Domain;
 
 public class ExpenseTrackerDbContext : DbContext
 {
-    public ExpenseTrackerDbContext(DbContextOptions<ExpenseTrackerDbContext> options)
-        : base(options) { }
-
     public DbSet<Category> Categories { get; set; }
     public DbSet<Expense> Expenses { get; set; }
 
+    public ExpenseTrackerDbContext(DbContextOptions<ExpenseTrackerDbContext> options) 
+        : base(options)
+    {
+    }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Category>()
-            .HasMany(c => c.Expenses)
-            .WithOne(e => e.Category)
-            .HasForeignKey(e => e.CategoryId)
-            .OnDelete(DeleteBehavior.Cascade);
+        base.OnModelCreating(modelBuilder);
+
+        // Configure the decimal property for Amount
+        modelBuilder.Entity<Expense>()
+            .Property(e => e.Amount)
+            .HasPrecision(18, 2); // Precision of 18, scale of 2
     }
 }
