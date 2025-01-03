@@ -1,4 +1,5 @@
-﻿using ExpenseTracker.Model;
+﻿using ExpenseTracker.Domain.Model;
+using ExpenseTracker.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExpenseTracker.Domain;

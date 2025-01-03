@@ -1,4 +1,6 @@
-﻿namespace ExpenseTracker.Model;
+﻿using ExpenseTracker.Domain.Model;
+
+namespace ExpenseTracker.Model;
 
 public class Category
 {

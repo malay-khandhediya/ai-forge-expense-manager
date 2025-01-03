@@ -7,11 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Register DbContext before building the app
+// Register DbContext with connection string from configuration
 builder.Services.AddDbContext<ExpenseTrackerDbContext>(options =>
-    options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=ExpenseTrackerDB;"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Add controllers to the services
+// Add controllers and CORS
 builder.Services.AddControllers();
 
 var app = builder.Build();
@@ -22,9 +22,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseHttpsRedirection(); // Ensure HTTPS redirection is enabled
-app.UseHsts();               // Enable HTTP Strict Transport Security
 
-app.MapControllers(); // Ensure this is called after adding controllers
+app.UseHttpsRedirection();
+app.UseHsts();
+app.UseCors("AllowAll");
+app.UseExceptionHandler("/error");
+app.UseStatusCodePages();
+app.UseStaticFiles();
+
+app.MapControllers();
 
 app.Run();
