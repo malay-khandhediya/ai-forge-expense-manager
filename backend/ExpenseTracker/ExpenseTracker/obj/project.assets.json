@@ -5189,11 +5189,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\peddle\\ai-forge-expense-manager\\backend\\ExpenseTracker\\ExpenseTracker\\ExpenseTracker.csproj",
+      "projectUniqueName": "D:\\ai-forge-expense-manager\\backend\\ExpenseTracker\\ExpenseTracker\\ExpenseTracker.csproj",
       "projectName": "ExpenseTracker",
-      "projectPath": "D:\\peddle\\ai-forge-expense-manager\\backend\\ExpenseTracker\\ExpenseTracker\\ExpenseTracker.csproj",
+      "projectPath": "D:\\ai-forge-expense-manager\\backend\\ExpenseTracker\\ExpenseTracker\\ExpenseTracker.csproj",
       "packagesPath": "C:\\Users\\Murtuza Vhora\\.nuget\\packages\\",
-      "outputPath": "D:\\peddle\\ai-forge-expense-manager\\backend\\ExpenseTracker\\ExpenseTracker\\obj\\",
+      "outputPath": "D:\\ai-forge-expense-manager\\backend\\ExpenseTracker\\ExpenseTracker\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
