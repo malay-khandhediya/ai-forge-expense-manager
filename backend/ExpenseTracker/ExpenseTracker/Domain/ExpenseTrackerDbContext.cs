@@ -21,5 +21,14 @@ public class ExpenseTrackerDbContext : DbContext
         modelBuilder.Entity<Expense>()
             .Property(e => e.Amount)
             .HasPrecision(18, 2); // Precision of 18, scale of 2
+        
+        // Configure DateTime properties to use DateTime2
+        modelBuilder.Entity<Expense>()
+            .Property(e => e.ExpenseDate)
+            .HasColumnType("DateTime");
+
+        modelBuilder.Entity<Expense>()
+            .Property(e => e.UpdatedAt)
+            .HasColumnType("DateTime");
     }
 }

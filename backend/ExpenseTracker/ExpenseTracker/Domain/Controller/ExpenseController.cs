@@ -30,8 +30,14 @@ public class ExpenseController : ControllerBase
     {
         if (id != expense.ExpenseId)
             return BadRequest();
-        _context.Entry(expense).State = EntityState.Modified;
-        expense.UpdatedAt = DateTime.UtcNow;
+        if(expense.ExpenseDate == null) return BadRequest("ExpenseDate is required");
+        var expenseDb =_context.Expenses.FirstOrDefault(c => c.ExpenseId == id);
+        if(expenseDb == null) return NotFound();
+        expenseDb.Amount = expense.Amount;
+        expenseDb.CategoryId = expense.CategoryId;
+        expenseDb.Description = expense.Description;
+        expenseDb.ExpenseDate = expense.ExpenseDate;
+        expenseDb.UpdatedAt = DateTime.Now;
         await _context.SaveChangesAsync();
         return NoContent();
     }
